@@ -1,0 +1,38 @@
+<div class="topdown">
+    <div class="row">
+        <div class="col-md-2 ">
+            <app-sidenav></app-sidenav>
+
+        </div>
+        <div class="col-md-10">
+            <div class="container">
+                <div class="ViewApptable">
+                    <h2>Appointments List</h2>
+
+                    <a routerLink="placeappointment">Add Appointment</a>
+                    <p *ngIf="!users && !errMsg">Please wait its loading....</p>
+                    <p *ngIf="errMsg">{{errMsg}}</p>
+                    
+                    <table  cellspacing=10 *ngIf="users">
+                        <thead>
+                            <tr>
+                            <th>Name</th>
+                            <th>Mobile</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let e of users">
+                                <td>{{e.firstName | uppercase}} {{e.lastName  | uppercase}}</td>
+                                <td>{{e.mobileNumber}}</td>
+                                <td>{{e.email}}</td>
+                                <td>{{e.address}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
